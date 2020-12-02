@@ -1,12 +1,20 @@
 <template>
   <div class="index">
-    <h1>欢迎进入模板系统</h1>
+    <h3>欢迎来</h3>
+    <ul class="cont">
+      <li v-for="option in list" :key='option.id'>
+        <strong>{{option.menu_name}}</strong>
+      </li>
+    </ul>
   </div>
 </template>
 
 <style lang="less" scoped>
-.index {
-  padding-top:50px;
+.index { }
+.cont{
+  li{
+    border-bottom: 1px solid #efefef;
+  }
 }
 </style>
 
@@ -20,9 +28,13 @@ export default {
     };
   },
   created(){
-      this.$api.post('/api/blog/list').then(function(data){
-        console.log('data:',data);
-      })
+    const self = this;
+    this.$api.get('/api/blog/list').then(data =>{
+      console.log('/api/blog/list data:',data);
+      if(data.success){
+        self.list = data.data
+      }
+    })
   },
   methods: {
     onSubmit(){

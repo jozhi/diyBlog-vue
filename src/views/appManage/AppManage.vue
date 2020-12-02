@@ -9,10 +9,10 @@
     <div class="contPart">
       <el-form ref="form" :model="form">
         <el-form-item label="标题">
-          <el-input v-model="form.title" placeholder="标题"></el-input>
+          <el-input v-model="form.article_title" placeholder="标题"></el-input>
         </el-form-item>
         <el-form-item label="内容">
-          <el-input type="textarea" v-model="form.content" placeholder="内容"></el-input>
+          <el-input type="textarea" v-model="form.article_content" placeholder="内容"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit">提交</el-button>
@@ -56,8 +56,8 @@ export default {
   data() {
     return {
       form: {
-        title: '',
-        content: '',
+        article_title: '',
+        article_content: '',
       },
     };
   },
