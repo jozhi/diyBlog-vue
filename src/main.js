@@ -14,6 +14,12 @@ import './assets/css/cube.css';
 import './assets/css/page.css';
 import * as api from './api/index'
 
+// 引用富文本编辑组件
+import common from './element/Editor/index'
+common.map(item => {
+  Vue.component(item.name, item)
+})
+
 Vue.use(ElementUI)
 
 Vue.prototype.$api = api    // 数据请求方法
